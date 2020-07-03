@@ -688,7 +688,7 @@
 		pinctrl-0 = <&tsp_ldo_init &tsp_rst &tsp_int>;
 		pinctrl-names = "default";
 		vmmc-supply = <&tsp_ldo_on &tsp_ldo_on1 &tsp_ldo_on2>;
-		linux,gpio-keymap = <KEY_RESERVED KEY_RESERVED KEY_RESERVED BTN_TOUCH>;
+		//linux,gpio-keymap = <KEY_RESERVED KEY_RESERVED KEY_RESERVED BTN_TOUCH>; - identifies touchscreen as touchpad
 	};
 };
 
