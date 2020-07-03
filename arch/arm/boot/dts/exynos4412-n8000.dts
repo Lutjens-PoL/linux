@@ -34,7 +34,7 @@
 	};
 
 	chosen {
-		bootargs = "root=/dev/mmcblk2p9 rw ignore_loglevel earlyprintk init=/init androidboot.selinux=permissive androidboot.console=ttySAC2 androidboot.hardware=smdk4x12 no_console_suspend";
+		bootargs = "root=/dev/mmcblk0p1 rw rootfstype=ext4 rootwait ignore_loglevel earlyprintk androidboot.selinux=permissive androidboot.console=ttySAC2 androidboot.hardware=smdk4x12 no_console_suspend";
 		stdout-path = "serial2:115200n8";
 	};
 
