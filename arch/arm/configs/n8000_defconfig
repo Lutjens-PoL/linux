@@ -1259,10 +1259,12 @@ CONFIG_NET_FLOW_LIMIT=y
 CONFIG_BT=m
 CONFIG_BT_BREDR=y
 # CONFIG_BT_RFCOMM is not set
-# CONFIG_BT_BNEP is not set
-# CONFIG_BT_HIDP is not set
-# CONFIG_BT_HS is not set
-# CONFIG_BT_LE is not set
+CONFIG_BT_BNEP=m
+# CONFIG_BT_BNEP_MC_FILTER is not set
+# CONFIG_BT_BNEP_PROTO_FILTER is not set
+CONFIG_BT_HIDP=m
+CONFIG_BT_HS=y
+CONFIG_BT_LE=y
 # CONFIG_BT_LEDS is not set
 # CONFIG_BT_SELFTEST is not set
 CONFIG_BT_DEBUGFS=y
@@ -1270,20 +1272,29 @@ CONFIG_BT_DEBUGFS=y
 #
 # Bluetooth device drivers
 #
+CONFIG_BT_BCM=m
 # CONFIG_BT_HCIBTUSB is not set
 # CONFIG_BT_HCIBTSDIO is not set
 CONFIG_BT_HCIUART=m
+CONFIG_BT_HCIUART_SERDEV=y
 CONFIG_BT_HCIUART_H4=y
+# CONFIG_BT_HCIUART_NOKIA is not set
 # CONFIG_BT_HCIUART_BCSP is not set
 # CONFIG_BT_HCIUART_ATH3K is not set
+# CONFIG_BT_HCIUART_LL is not set
+# CONFIG_BT_HCIUART_3WIRE is not set
 # CONFIG_BT_HCIUART_INTEL is not set
+CONFIG_BT_HCIUART_BCM=y
+# CONFIG_BT_HCIUART_QCA is not set
 # CONFIG_BT_HCIUART_AG6XX is not set
+# CONFIG_BT_HCIUART_MRVL is not set
 # CONFIG_BT_HCIBCM203X is not set
 # CONFIG_BT_HCIBPA10X is not set
 # CONFIG_BT_HCIBFUSB is not set
 # CONFIG_BT_HCIVHCI is not set
 # CONFIG_BT_MRVL is not set
 # CONFIG_BT_MTKSDIO is not set
+# CONFIG_BT_MTKUART is not set
 # end of Bluetooth device drivers
 
 # CONFIG_AF_RXRPC is not set
@@ -2006,7 +2017,8 @@ CONFIG_SERIAL_CORE_CONSOLE=y
 # end of Serial drivers
 
 CONFIG_SERIAL_MCTRL_GPIO=y
-# CONFIG_SERIAL_DEV_BUS is not set
+CONFIG_SERIAL_DEV_BUS=y
+CONFIG_SERIAL_DEV_CTRL_TTYPORT=y
 # CONFIG_TTY_PRINTK is not set
 # CONFIG_HVC_DCC is not set
 # CONFIG_IPMI_HANDLER is not set
@@ -2597,6 +2609,7 @@ CONFIG_MFD_WM8994=y
 # CONFIG_MFD_ROHM_BD71828 is not set
 # CONFIG_MFD_STPMIC1 is not set
 # CONFIG_MFD_STMFX is not set
+# CONFIG_RAVE_SP_CORE is not set
 # end of Multifunction device drivers
 
 CONFIG_REGULATOR=y
@@ -4515,6 +4528,7 @@ CONFIG_STMPE_ADC=y
 # CONFIG_BME680 is not set
 # CONFIG_CCS811 is not set
 # CONFIG_IAQCORE is not set
+# CONFIG_PMS7003 is not set
 # CONFIG_SENSIRION_SGP30 is not set
 # CONFIG_SPS30 is not set
 # CONFIG_VZ89X is not set
