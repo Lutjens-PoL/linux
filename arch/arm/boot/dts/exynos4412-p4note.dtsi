@@ -185,6 +185,9 @@
 			pinctrl-names = "default";
 			interrupt-parent = <&gpm4>;
 			interrupts = <7 IRQ_TYPE_EDGE_RISING>;
+			mount-matrix =	"1",  "0",  "0",
+					"0", "-1",  "0",
+					"0",  "0", "-1";
 		};
 	};
 
@@ -456,6 +459,31 @@
 	status = "okay";
 	phys = <&exynos_usbphy 1>;
 	phy-names = "host";
+};
+
+&i2c_1 {
+	samsung,i2c-sda-delay = <100>;
+	samsung,i2c-slave-addr = <0x10>;
+	samsung,i2c-max-bus-freq = <400000>;
+	pinctrl-0 = <&i2c1_bus>;
+	pinctrl-names = "default";
+	status = "okay";
+
+	accelerometer@19 {
+		compatible = "st,lsm330dlc-accel";
+		reg = <0x19>;
+		interrupt-parent = <&gpx0>;
+		interrupts = <0 IRQ_TYPE_EDGE_RISING>;
+		pinctrl-0 = <&accelerometer_int>;
+		pinctrl-names = "default";
+	};
+
+	gyro@6b {
+		compatible = "st,lsm330dlc-gyro";
+		reg = <0x6b>;
+		pinctrl-0 = <&gyro_data_enable &gyro_int>;
+		pinctrl-names = "default";
+	};
 };
 
 &i2c_3 {
@@ -1069,6 +1097,12 @@
 		samsung,pins = "gpm4-7";
 		samsung,pin-function = <EXYNOS_PIN_FUNC_F>;
 		samsung,pin-pud = <EXYNOS_PIN_PULL_DOWN>;
+	};
+
+	accelerometer_int: accelerometer-int {
+		samsung,pins = "gpx0-0";
+		samsung,pin-function = <EXYNOS_PIN_FUNC_INPUT>;
+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
 	};
 
 	stmpe_adc_irq: stmpe-adc-irq {
