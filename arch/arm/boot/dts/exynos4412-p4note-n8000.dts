@@ -15,3 +15,17 @@
 	chassis-type = "tablet";
 
 };
+
+&i2c_1 {
+	accelerometer@19 {
+		mount-matrix =  "-1", "0", "0",
+						"0", "1", "0",
+						"0", "0", "1";
+};
+
+	gyro@6b {
+		mount-matrix =  "-1", "0", "0",
+						"0", "1", "0",
+						"0", "0", "1";
+	};
+};
