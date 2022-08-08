@@ -326,6 +326,21 @@
 
 	};
 
+	i2c-gpio-5 {
+		compatible = "i2c-gpio";
+		sda-gpios = <&gpl0 2 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+		scl-gpios = <&gpl0 1 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+
+		i2c-gpio,delay-us = <2>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		ambient_light_sensor@1c {
+			compatible = "dynaimage,al3201";
+			reg = <0x1c>;
+		};
+	};
+	
 	extcon_p4note: external-connector {
 		compatible = "extcon,p4note";
 
