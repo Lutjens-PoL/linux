@@ -209,6 +209,9 @@
 			maxim,rsns-microohm = <10000>;
 			maxim,over-heat-temp = <600>;
 			maxim,over-volt = <4300>;
+			
+			power-supplies = <&power_supply>;
+			monitored-battery = <&battery_cell>;
 		};
 	};
 
