@@ -1381,6 +1381,9 @@ static void extcon_cable_worker(struct smb347_charger *smb)
 	smb347_set_writable(smb, false, true);
 	smb347_charging_enable(smb);
 
+	/* SMB347 it needs at least 20ms for setting IRQSTAT_E_*IN_UV_IRQ */
+	usleep_range(25000, 35000);
+	
 	dev_dbg(smb->dev, "applying updated state to power supply");
 	smb347_update_ps_status(smb);
 	if (smb->use_mains)
